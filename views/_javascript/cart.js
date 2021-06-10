@@ -28,19 +28,18 @@ function startSignEvent(){
 		elemLI.remove();
 
 		if(jQuery(".cart_product_list>li").length>0){
+			changeCount();
 			changeSum();
+			setTimeout(function() {
+				$(window).lazyLoadXT();
+			}, 50);
 		}else{
 			jQuery(".cart").replaceWith("<div class=\"cart_empty_space_text\">Кошик пустий</div>");
 		}
 	});
 
 	jQuery(".cart_item_sum_left>input").on("change", function(){
-		var list=jQuery(".cart_item_sum_left>input");
-		var count=0;
-		list.each(function(id, val){
-			count+=Number(jQuery(val).val());
-		});
-		jQuery(".cart_count_product").html(count);
+		changeCount();
 		jQuery(this).parent().parent().parent().parent().attr("data-count", jQuery(this).val());
 		changeSum();
 	});
@@ -89,6 +88,15 @@ function eventBtnRegOrder(){
 	});
 }
 
+function changeCount(){
+	var list=jQuery(".cart_item_sum_left>input");
+	var count=0;
+	list.each(function(id, val){
+		count+=Number(jQuery(val).val());
+	});
+	jQuery(".cart_count_product").html(count);
+}
+
 function changeSum(){
 	var price1= jQuery(".cart_product_list>li");
 	var priceDiscount=0;
@@ -130,36 +138,6 @@ function backsignin(){
 		console.log(resultRouter);
 		hishBtnRegOrder(1);
 		hishBtnRegOrderError(resultRouter);
-
-		resultRouter=false;
-	}
-}
-
-function backsignin2(){
-	if(resultRouter==false){ // если результата нет, повторяет эту функцию каждую 1 сек
-		setTimeout(backsignin2, 1000);
-	}
-	else if(resultRouter==true){ // если данные совпали, переход
-		$(location).attr('href','/profile');
-		exit();
-	}else{ // если данные не совплаи
-		jQuery(".signUpButton").html("РЕЄСТРАЦІЯ");
-		
-
-		jQuery(".signUpButton").on("click", function(){ 
-			jQuery(".signUpInput [name='email']").trigger("focusout");
-			jQuery(".signUpInput [name='login']").trigger("focusout");
-			jQuery(".signUpInput [name='password']").trigger("focusout");
-			if(errorSignUp.length==0){
-				var email=jQuery(".signUpInput [name='email']").val().trim();
-				var login=jQuery(".signUpInput [name='login']").val().trim();
-				var pass=jQuery(".signUpInput [name='password']").val().trim();
-				doSignUp(email, login, pass);
-				jQuery(this).unbind();
-			}
-		});
-
-		showError(jQuery(".signUp input[name='"+resultRouter[0]+"']")[0], resultRouter[1]);
 
 		resultRouter=false;
 	}

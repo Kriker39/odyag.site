@@ -3,12 +3,15 @@
 <head>
 	<?php include(config::getLink("head_tags.php")); ?>
 	<script type="text/javascript" src="<?php echo config::getLink('lazyloadxt.js') ?>"></script>
+	<script type="text/javascript" src="<?php echo config::getLink('jquery.cookie.js') ?>"></script>
+	<script type="text/javascript" src="<?php echo config::getLink('router.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo config::getLink('constructor.js') ?>"></script>
 </head>
 <body>
 <?php include(config::getLink("header.php")); ?>
 
 <section class="constructorPage">
+	<div class="constructor_infoLoadCart"><img src="/views/_img/icon_info.png"> Щоб більш точніше приміряти товар, фото потрібно обрізати вгорі і знизу впритул до голови і ніг відповідно</div>
 	<div class="container_display">
 		<div class="display">
 			<img src="/views/_img/maniken_woman.png" class="display_background" alt="Зображення не завантажилось">
@@ -46,11 +49,15 @@
 			</div>
 			<div>
 				<div>Оновити:	</div>
-				<div><div class="constructor_updateListProduct constr_btn">Cписок обраних товарів</div></div>
+				<div><div class="constructor_updateListProduct constr_btn"><div class="upd_timer"></div><span>Cписок обраних товарів</span><img class="btnLoadUpdate" src="/views/_img/loader2.gif"><img class="btnDone" src="/views/_img/accept_add.png"></div></div>
 			</div>
 		</div>
 		<div class="list_product">
-			<h3>Список обраних товарів</h3>
+			<h3>Список обраних товарів 
+				<?php if($check):?>
+					<div><span><?php echo count($listProduct); ?></span> ТОВАР(-И)</div>
+				<?php endif;?>
+			</h3>
 			<div class="list_selectProduct">
 				<ul>
 					<?php 
@@ -82,102 +89,13 @@
 							}
 						}
 					?>
-					<!-- <li data-id="tp1p1-XL" data-length="80" data-lenimg="1">
-						<img data-src="/data/product/img/tp1p1/1.jpg" class="constructor_imgItem2">
-						<div>
-							<p>Name company</p>
-							<p>Колір: <img src="/data/product/color/tp1p1.jpg"></p>
-							<p>Розмір: XL</p>
-							<p>Код: tp1p1</p>
-						</div>
-						<div class="list_product_plus">
-							<div class="plus_symbol">+</div>
-							<div class="plus_shadow"></div>
-						</div>
-					</li>
-					<li data-id="tp1p1-40" data-length="100" data-lenimg="1">
-						<img src="/data/product/img/tp1p1/1.jpg" class="constructor_imgItem2">
-						<div>
-							<p>Name company</p>
-							<p>Колір: <img src="/data/product/color/tp1p1.jpg"></p>
-							<p>Розмір: 40</p>
-							<p>Код: tp1p1</p>
-						</div>
-						<div class="list_product_plus">
-							<div class="plus_symbol">+</div>
-							<div class="plus_shadow"></div>
-						</div>
-					</li>
-					<li data-id="tp1p2-XXL" data-length="100" data-lenimg="1">
-						<img src="/data/product/img/tp1p2/1.jpg" class="constructor_imgItem2">
-						<div>
-							<p>Name company</p>
-							<p>Колір: <img src="/data/product/color/tp1p2.jpg"></p>
-							<p>Розмір: XXL</p>
-							<p>Код: tp1p2</p>
-						</div>
-						<div class="list_product_plus">
-							<div class="plus_symbol">+</div>
-							<div class="plus_shadow"></div>
-						</div>
-					</li>
-					<li data-id="tp1p3-32" data-length="100" data-lenimg="1">
-						<img src="/data/product/img/tp1p3/1.jpg" class="constructor_imgItem2">
-						<div>
-							<p>Name company</p>
-							<p>Колір: <img src="/data/product/color/tp1p3.jpg"></p>
-							<p>Розмір: 32</p>
-							<p>Код: tp1p3</p>
-						</div>
-						<div class="list_product_plus">
-							<div class="plus_symbol">+</div>
-							<div class="plus_shadow"></div>
-						</div>
-					</li>
-					<li data-id="tp2p5-XL" data-length="100" data-lenimg="1">
-						<img src="/data/product/img/tp2p5/1.jpg" class="constructor_imgItem2">
-						<div>
-							<p>Name company</p>
-							<p>Колір: <img src="/data/product/color/tp2p5.jpg"></p>
-							<p>Розмір: XL</p>
-							<p>Код: tp2p5</p>
-						</div>
-						<div class="list_product_plus">
-							<div class="plus_symbol">+</div>
-							<div class="plus_shadow"></div>
-						</div>
-					</li>
-					<li data-id="tp2p6-L" data-length="100" data-lenimg="1">
-						<img src="/data/product/img/tp2p6/1.jpg" class="constructor_imgItem2">
-						<div>
-							<p>Name company</p>
-							<p>Колір: <img src="/data/product/color/tp2p6.jpg"></p>
-							<p>Розмір: L</p>
-							<p>Код: tp2p6</p>
-						</div>
-						<div class="list_product_plus">
-							<div class="plus_symbol">+</div>
-							<div class="plus_shadow"></div>
-						</div>
-					</li>
-					<li data-id="tp2p7-XL" data-length="100" data-lenimg="1">
-						<img src="/data/product/img/tp2p7/1.jpg" class="constructor_imgItem2">
-						<div>
-							<p>Name company</p>
-							<p>Колір: <img src="/data/product/color/tp2p7.jpg"></p>
-							<p>Розмір: XL</p>
-							<p>Код: tp2p7</p>
-						</div>
-						<div class="list_product_plus">
-							<div class="plus_symbol">+</div>
-							<div class="plus_shadow"></div>
-						</div>
-					</li> -->
 				</ul>
 			</div>
 		</div>
 		<div class="constructor_info">
 			<h3>Інформація</h3>
+			<h4>Завантаження фото</h4>
+			<p>У конструкторі є можливість завантажити зображення або вказати посилання на нього. Завантажені зображення не зберігаються. Щоб більш точніше приміряти товар, фото потрібно обрізати вгорі і знизу впритул до голови і ніг відповідно.</p>
 			<h4>Вікно примірки</h4>
 			<p>У цьому вікні можна переміщати одяг який був доданий в конструктор.</p>
 			<h4>Список виведених товарів</h4>

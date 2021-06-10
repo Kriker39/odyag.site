@@ -191,14 +191,14 @@ function startSubmitFilter() {
 			for (var i = 0; i < products.length; i++) {
 				var endSort=true;
 				for (var j = 0; j < products.length-1; j++) {
-					if(jQuery(jQuery(".product>ul>li")[j]).attr("data-views") < jQuery(jQuery(".product>ul>li")[j+1]).attr("data-views")){
+					if(Number(jQuery(jQuery(".product>ul>li")[j]).attr("data-views")) < Number(jQuery(jQuery(".product>ul>li")[j+1]).attr("data-views"))){
 						swapElements(jQuery(".product>ul>li")[j], jQuery(".product>ul>li")[j+1]);
 						endSort=false;
 					}
-				}
-				if(endSort){
-					break;
-				}
+				}console.log("ssa");
+				// if(endSort){
+				// 	break;
+				// }
 			}
 			changesInFilter.shift();
 		}else if(changesInFilter.indexOf("Новизною")!=-1){

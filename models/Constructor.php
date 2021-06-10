@@ -24,11 +24,12 @@ class Constructor{
 
 		for($i=0; $i<count($newRslt); $i++){
 			$listSize= explode("-", $newRslt[$i]["length"]);
-			foreach($listSize as $size){
-				$countsize= explode(".", $size);
-				if(count($countsize)>0){
-					foreach($newListIdSize as $idsize){
-						if($idsize[0]==$newRslt[$i]["id"] && $idsize[1]==$countsize[1]){
+
+			foreach($newListIdSize as $idsize){
+				if($idsize[0]==$newRslt[$i]["id"]){
+					foreach($listSize as $size){
+						$countsize= explode(".", $size);
+						if(count($countsize)>1 && $idsize[1]==$countsize[1]){
 							$newRslt[$i]["length"]= $countsize[0];
 							unset($newListIdSize[array_search($idsize, $newListIdSize)]);
 							break 2;

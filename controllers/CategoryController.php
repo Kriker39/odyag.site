@@ -60,4 +60,20 @@ class CategoryController{
 
 		return true;
 	}
+
+	public function jsactionUpdateConstructor(){ // ajax функция для обновления списка товаров
+		$list=array();
+
+		$listCookie= Cart::getListProduct();
+		$listProduct= Constructor::getListProductForConstructor($listCookie);
+		$newList= $listCookie;
+
+		
+		array_push($list, $listCookie);
+		array_push($list, $listProduct);
+
+		echo json_encode($list);
+
+		return true;
+	}
 }
