@@ -55,9 +55,11 @@
 			<div class="product_listColor">
 				<?php 
 					foreach($listIdConnectByTag as $idval){
-						echo "<a href=\"/product/tp".$tag."p".$idval."\"";
+						echo "<a ";
 						if($idval==$id){
 							echo "class=\"active\"";
+						}else{
+							echo "href=\"/product/tp".$tag."p".$idval."\"";
 						}
 						echo "><img src=\"/data/product/color/tp".$tag."p".$idval.".jpg\"></a>";
 					}
@@ -86,8 +88,12 @@
 			</div>
 		</div>
 		<div class="container_product_addProduct">
+			<?php if($status==1 && !$checkEndSize): ?>
 			<img src="/views/_img/accept_add.png" class="product_addProduct_accept">
 			<div class="product_addProduct"><p>ДОДАТИ У КОШИК</p><img src="/views/_img/loader2.gif"></div>
+			<?php elseif($status==0 || $checkEndSize): ?>
+			<div class="product_addProduct 	product_btnEnd"><p>НЕ МАЄ В НАЯВНОСТІ</p></div>
+			<?php endif; ?>
 			<div class="product_addProduct_error">Не вдалося додати у кошик</div>
 		</div>
 		<?php 

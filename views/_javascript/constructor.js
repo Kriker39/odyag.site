@@ -32,7 +32,8 @@ function startEvents(){
 				"<img src=\"/views/_img/close.png\" class=\"constructor_closeItem\">");
 
 			var idmasive= idproduct.split("-");
-			var txt="<div class=\"displayitem\" data-id=\""+idproduct+"\" title=\"код: "+masId[0]+"\nрозмір: "+masId[1]+"\">";
+			var index= Number(jQuery(".displayitem").length)+1;
+			var txt="<div class=\"displayitem\" data-id=\""+idproduct+"\" style=\"z-index:"+index+";\" title=\"код: "+masId[0]+"\nрозмір: "+masId[1]+"\">";
 
 			for(var i=1; i<=jQuery(this).attr("data-lenimg"); i++){
 				txt+="<img src=\"/data/product/constructor/"+idmasive[0]+"/"+i+".png\">"
@@ -167,7 +168,14 @@ function eventItemDisplay(){
 	jQuery(".displayitem").on("mousedown", function(e){
 		xs=e.pageX;
 		ys=e.pageY;
-		jQuery(this).css("z-index","6");
+
+		var len= Number(jQuery(".displayitem").length);
+		var len2= Number(jQuery(this).css("z-index"));
+		for (var i = len2+1; i <=len; i++) {
+			jQuery(".displayitem[style^=\"z-index: "+i+"\"]").css("z-index", i-1);
+			jQuery(this).css("z-index", i);
+		}
+		
 		jQuery(this).on("mousemove", function(e){
 		    var xn= e.pageX;
 		    var yn= e.pageY;
@@ -208,7 +216,6 @@ function eventItemDisplay(){
 	});
 	jQuery(".displayitem").on("mouseup mouseleave", function(){
 		jQuery(".displayitem").unbind("mousemove");
-		jQuery(this).css("z-index","5");
 	});
 }
 

@@ -3,10 +3,22 @@
 class CartController{
 
 	public static function actionIndex(){
+		$updateCart= Cart::updateCartCookie();
 
-		
+		if($updateCart){
+			header("Refresh:0");
+		}else{
+			$check= Cart::checkCart();
 
-		require_once(ROOT.'/views/cart/index.php');
+			if($check){
+				$listCookie= Cart::getListProduct();
+				$listProduct= Product::getListProductForCart($listCookie);
+				$listSum= Cart::getListSum($listProduct);
+				$newList= $listCookie;
+			}
+
+			require_once(ROOT.'/views/cart/index.php');
+		}
 
 		return true;
 	}
@@ -50,6 +62,25 @@ class CartController{
 		if($err!=false){
 			echo json_encode($err);
 		}
+		return true;
+	}
+
+	public static function jsactionRegOrder($idcount){ // ajax функция для начала оформления заказа
+		$err=true;
+		// var_dump($idcount);
+		// if(User::findLogin($login)){
+		// 	if(User::checkUser($login, $pass)){
+		// 		User::saveLoginInCookie($login);
+		// 		User::savePasswordInCookie($login);
+
+		// 		$err=false;
+		// 		echo true;
+		// 	}
+		// }
+		// if($err){
+			echo json_encode("Не вдалося перейти. Кількість деяких товарів змінилась.");
+		// }
+
 		return true;
 	}
 }

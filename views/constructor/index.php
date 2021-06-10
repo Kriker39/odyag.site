@@ -2,8 +2,7 @@
 <html>
 <head>
 	<?php include(config::getLink("head_tags.php")); ?>
-	<link rel="stylesheet" type="text/css" href="<?php echo config::getLink('splide.css') ?>">
-	<script type="text/javascript" src="<?php echo config::getLink('splide.js') ?>"></script>
+	<script type="text/javascript" src="<?php echo config::getLink('lazyloadxt.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo config::getLink('constructor.js') ?>"></script>
 </head>
 <body>
@@ -54,8 +53,37 @@
 			<h3>Список обраних товарів</h3>
 			<div class="list_selectProduct">
 				<ul>
-					<li data-id="tp1p1-XL" data-length="80" data-lenimg="1">
-						<img src="/data/product/img/tp1p1/1.jpg" class="constructor_imgItem2">
+					<?php 
+						if(!$check){
+							echo "<div class=\"constructor_emptyCart\"><img src=\"/views/_img/icon_info.png\"> У кошику порожньо</div>";
+						}else{
+							foreach($listProduct as $product){
+								$size=0;
+								foreach($newList as $idsize){
+									if($idsize[0]==$product["id"]){
+										$size= $idsize[1];
+										unset($newList[array_search(array($idsize[0], $idsize[1]),$newList)]);
+										break;
+									}
+								}
+								echo "<li data-id=\"tp".$product["tag"]."p".$product["id"]."-".$size."\" data-length=\"".$product["length"]."\" data-lenimg=\"1\">
+									<img data-src=\"/data/product/img/tp".$product["tag"]."p".$product["id"]."/1.jpg\" class=\"constructor_imgItem2\">
+									<div>
+										<p>".$product["name"]."</p>
+										<p>Колір: <img src=\"/data/product/color/tp".$product["tag"]."p".$product["id"].".jpg\"></p>
+										<p>Розмір: ".$size."</p>
+										<p>Код: tp".$product["tag"]."p".$product["id"]."</p>
+									</div>
+									<div class=\"list_product_plus\">
+										<div class=\"plus_symbol\">+</div>
+										<div class=\"plus_shadow\"></div>
+									</div>
+								</li>";
+							}
+						}
+					?>
+					<!-- <li data-id="tp1p1-XL" data-length="80" data-lenimg="1">
+						<img data-src="/data/product/img/tp1p1/1.jpg" class="constructor_imgItem2">
 						<div>
 							<p>Name company</p>
 							<p>Колір: <img src="/data/product/color/tp1p1.jpg"></p>
@@ -144,7 +172,7 @@
 							<div class="plus_symbol">+</div>
 							<div class="plus_shadow"></div>
 						</div>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>

@@ -4,11 +4,17 @@ class CategoryController{
 
 	public static function actionConstructor(){
 
-		$listCategory= Category::getThirdCategoryByFirstCat(2);
-		$secondCategory= Category::getSecondCategory();
+		$updateCart= Cart::updateCartCookie();
 
-		$listLastProduct= Product::getProductOrderDescByListCategory($listCategory);
-		$listSize= Product::getSizeByListCategory($listCategory);
+		if(!$updateCart){
+			$check= Cart::checkCart();
+
+			if($check){
+				$listCookie= Cart::getListProduct();
+				$listProduct= Constructor::getListProductForConstructor($listCookie);
+				$newList= $listCookie;
+			}
+		}
 
 		require_once(ROOT.'/views/constructor/index.php');
 

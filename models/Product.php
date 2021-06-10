@@ -24,6 +24,19 @@ class Product{
 		return $listSize;
 	}
 
+	public static function checkEndSize($list){
+		$return= true;
+
+		foreach($list as $countsize){
+			if($countsize[0]>0){
+				$return= false;
+				break;
+			}
+		}
+
+		return $return;
+	}
+
 	//--------------GET FUNCTIONS------------
 
 	public static function getDataProductForOrder($listProduct){
@@ -141,6 +154,58 @@ class Product{
 		}
 
 		return $count;
+	}
+
+	public static function getListProductForCart($listIdSize){
+		$listId= array();
+		$newListIdSize= $listIdSize;
+		foreach($listIdSize as $item){
+			if(count($item)>0){
+				array_push($listId, $item[0]);
+			}
+		}
+
+		$rslt= R::getAll("SELECT id, tag, name, company, price, discount, size FROM product WHERE id IN (".R::genSlots($listId).")", $listId);
+
+		$newRslt= array();
+
+		foreach ($listId as $value) {
+			foreach($rslt as $val){
+				if(in_array($value, $val)){
+					if($val["discount"]>0){
+						$sum= round($val["price"]-($val["discount"]*$val["price"]/100));
+						$val["discount"]=$sum;
+					}
+					array_push($newRslt, $val);
+					break;
+				}
+			}
+		}
+		
+
+		for($i=0; $i<count($newRslt); $i++){
+			$listSize= explode("-", $newRslt[$i]["size"]);
+			foreach($listSize as $size){
+				$countsize= explode(".", $size);
+				if(count($countsize)>0){
+					foreach($newListIdSize as $idsize){
+						if($idsize[0]==$newRslt[$i]["id"] && $idsize[1]==$countsize[1]){
+							$newRslt[$i]["size"]= $countsize[0];
+							unset($newListIdSize[array_search($idsize, $newListIdSize)]);
+							break 2;
+						}
+					}
+				}
+			}
+		}
+
+		return $newRslt;
+	}
+
+	public static function getStatusById($id){
+		$rslt= R::getCell("SELECT status FROM product WHERE id=?", array($id));
+
+		return $rslt;
 	}
 	
 	//--------------FIND FUNCTIONS------------

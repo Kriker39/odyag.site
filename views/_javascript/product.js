@@ -5,6 +5,12 @@ var expanded = false; // мульти селектор
 jQuery(document).ready(function(){
 	startEvents();
 	startCheckboxes();
+
+	if(jQuery(".container_product_addProduct>div").is(".product_btnEnd")){
+		jQuery(".checkboxes>li").unbind();
+		jQuery(".checkboxes>li").css("cursor", "auto");
+		jQuery(".product_addProduct").unbind();
+	}
 });
 
 function startEvents(){
@@ -72,6 +78,9 @@ function startCheckboxes() {
 		var text= jQuery(this).children("p").html();
 
 		jQuery(".container_select>select>option").html(text);
+		jQuery(".checkboxes").css("display", "none");
+		expanded = false;
+		jQuery(document).unbind("click");
 	});
 }
 

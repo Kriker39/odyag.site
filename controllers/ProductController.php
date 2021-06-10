@@ -10,6 +10,8 @@ class ProductController{
 			$dataProduct= Product::getProductById($id);
 			$countImg= Product::getCountImg($tag, $id);
 			$listSize= Product::encodeSizeProduct($dataProduct["size"]);
+			$checkEndSize= Product::checkEndSize($listSize);
+			$status= Product::getStatusById($id);
 
 			require_once(ROOT.'/views/product/index.php');
 		}else{
