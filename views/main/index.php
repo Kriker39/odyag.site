@@ -35,6 +35,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
+							<span>800 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -42,6 +44,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/2">
 							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
+							<span>434 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -49,6 +53,80 @@
 					<div class="splide__slide__container">
 						<a href="/product/3">
 							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
+							<span>421 UAH</span>
+							<span>Cropp</span>
+						</a>
+					</div>
+				</li>
+				<li class="splide__slide">
+					<div class="splide__slide__container">
+						<a href="/product/1">
+							<div><img src="/data/product/img/tp1p1/1.jpg"></div>
+							<span>466 UAH</span>
+							<span>Cropp</span>
+						</a>
+					</div>
+				</li>
+				<li class="splide__slide">
+					<div class="splide__slide__container">
+						<a href="/product/2">
+							<div><img src="/data/product/img/tp2p7/1.jpg"></div>
+							<span>712 UAH</span>
+							<span>Cropp</span>
+						</a>
+					</div>
+				</li>
+				<li class="splide__slide">
+					<div class="splide__slide__container">
+						<a href="/product/1">
+							<div><img src="/data/product/img/tp2p6/1.jpg"></div>
+							<span>854 UAH</span>
+							<span>Cropp</span>
+						</a>
+					</div>
+				</li>
+				<li class="splide__slide">
+					<div class="splide__slide__container">
+						<a href="/product/2">
+							<div><img src="/data/product/img/tp1p2/1.jpg"></div>
+							<span>491 UAH</span>
+							<span>Cropp</span>
+						</a>
+					</div>
+				</li>
+				<li class="splide__slide">
+					<div class="splide__slide__container">
+						<a href="/product/3">
+							<div><img src="/data/product/img/tp1p4/1.jpg"></div>
+							<span>672 UAH</span>
+							<span>Cropp</span>
+						</a>
+					</div>
+				</li>
+				<li class="splide__slide">
+					<div class="splide__slide__container">
+						<a href="/product/1">
+							<div><img src="/data/product/img/tp1p3/1.jpg"></div>
+							<span>228 UAH</span>
+							<span>Cropp</span>
+						</a>
+					</div>
+				</li>
+				<li class="splide__slide">
+					<div class="splide__slide__container">
+						<a href="/product/2">
+							<div><img src="/data/product/img/tp2p5/1.jpg"></div>
+							<span>831 UAH</span>
+							<span>Cropp</span>
+						</a>
+					</div>
+				</li>
+				<li class="splide__slide">
+					<div class="splide__slide__container">
+						<a href="/product/1">
+							<div><img src="/data/product/img/tp2p8/1.jpg"></div>
+							<span>813 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -56,6 +134,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
+							<span>800 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -63,20 +143,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/2">
 							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
+							<span>434 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -84,90 +152,80 @@
 					<div class="splide__slide__container">
 						<a href="/product/3">
 							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
+							<span>421 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
 				<li class="splide__slide">
 					<div class="splide__slide__container">
 						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
+							<div><img src="/data/product/img/tp1p1/1.jpg"></div>
+							<span>466 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
 				<li class="splide__slide">
 					<div class="splide__slide__container">
 						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
+							<div><img src="/data/product/img/tp2p7/1.jpg"></div>
+							<span>712 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
 				<li class="splide__slide">
 					<div class="splide__slide__container">
 						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
+							<div><img src="/data/product/img/tp2p6/1.jpg"></div>
+							<span>854 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
 				<li class="splide__slide">
 					<div class="splide__slide__container">
 						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
+							<div><img src="/data/product/img/tp1p2/1.jpg"></div>
+							<span>491 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
 				<li class="splide__slide">
 					<div class="splide__slide__container">
 						<a href="/product/3">
-							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
+							<div><img src="/data/product/img/tp1p4/1.jpg"></div>
+							<span>672 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
 				<li class="splide__slide">
 					<div class="splide__slide__container">
 						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
+							<div><img src="/data/product/img/tp1p3/1.jpg"></div>
+							<span>228 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
 				<li class="splide__slide">
 					<div class="splide__slide__container">
 						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
+							<div><img src="/data/product/img/tp2p5/1.jpg"></div>
+							<span>831 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
 				<li class="splide__slide">
 					<div class="splide__slide__container">
 						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/3">
-							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
+							<div><img src="/data/product/img/tp2p8/1.jpg"></div>
+							<span>813 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -190,8 +248,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -199,8 +257,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/2">
 							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -208,8 +266,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/3">
 							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -217,8 +275,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -226,8 +284,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -235,8 +293,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/2">
 							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -244,8 +302,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/3">
 							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -253,8 +311,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -262,8 +320,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -271,8 +329,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/2">
 							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -280,8 +338,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/3">
 							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -289,8 +347,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -298,8 +356,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -307,8 +365,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/2">
 							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -316,8 +374,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/3">
 							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -325,8 +383,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -349,8 +407,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -358,8 +416,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/2">
 							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -367,8 +425,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/3">
 							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -376,8 +434,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -385,8 +443,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -394,8 +452,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/2">
 							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -403,8 +461,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/3">
 							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -412,8 +470,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -421,8 +479,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -430,8 +488,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/2">
 							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -439,8 +497,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/3">
 							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -448,8 +506,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -457,8 +515,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -466,8 +524,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/2">
 							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -475,8 +533,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/3">
 							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>
@@ -484,8 +542,8 @@
 					<div class="splide__slide__container">
 						<a href="/product/1">
 							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436₴</span>
-							<span>Marks & Spencer</span>
+							<span>2436 UAH</span>
+							<span>Cropp</span>
 						</a>
 					</div>
 				</li>

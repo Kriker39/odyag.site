@@ -81,8 +81,18 @@
 				<tr class="table_item item3">
 					<td colspan="6">
 						<table>
-							<tr><td><a href="/product/1/1/1">Назва</a></td><td>Колір</td><td>Розмір</td><td>Ціна</td><td>К-сть</td><td>Сума</td></tr>
-							<tr><td><a href="/product/1/1/1">Name Firma</a></td><td><img src="/data/product/color/cp2p1.jpg"></td><td>XL</td><td>152 UAH</td><td>1</td><td>1324 UAH</td></tr>
+							<tr>
+								<td><a href="/product/1/1/1">Назва</a></td>
+								<td>Колір</td><td>Розмір</td>
+								<td>Ціна</td><td>К-сть</td>
+								<td>Сума</td>
+							</tr>
+							<tr>
+								<td><a href="/product/1/1/1">Name Firma</a></td>
+								<td><img src="/data/product/color/cp2p1.jpg"></td>
+								<td>XL</td><td>152 UAH</td>
+								<td>1</td><td>1324 UAH</td>
+							</tr>
 						</table>
 					</td>
 				</tr> -->

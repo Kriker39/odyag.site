@@ -3,6 +3,7 @@ var products ;
 var active_sudmit = false;
 var changesInFilter = [];
 var saveListProduct = jQuery(".product>ul>li");
+var lastNumScroll= 0;
 
 var filter = ["Новизною", "Виберіть розмір"];
 var sizeElem=0;
@@ -12,6 +13,7 @@ jQuery(document).ready(function(){
 	startCheckboxes();
 	startSubmitFilter();
 	startResetFilter();
+	startReturnScroll();
 });
 
 function startImgHover(){
@@ -76,6 +78,33 @@ function startCheckboxes() {
 			}
 		}
 	});
+}
+
+function startReturnScroll(){
+  
+jQuery('.scrollup').click(function() {
+	$("html, body").animate({
+		scrollTop:0
+	},1000);
+});
+
+jQuery(window).scroll(function() {
+	if(jQuery(this).scrollTop()>=200 && lastNumScroll<=200) {
+		jQuery('.scrollup').css("display", "inline-block");
+		jQuery('.scrollup').animate({
+			height: "80px"
+		}, 500);
+		lastNumScroll=jQuery(this).scrollTop();
+	}
+	else if(jQuery(this).scrollTop()<200 && lastNumScroll>200){
+		jQuery('.scrollup').animate({
+			height: "0"
+		}, 500, function(){
+			jQuery('.scrollup').css("display", "none");
+		});
+		lastNumScroll=jQuery(this).scrollTop();
+	}
+});
 }
 
 function changeTextSelectorCheckbox(change, text, checkbox){

@@ -246,7 +246,7 @@ body{
 	position: relative;
 	max-height: 400px;
 	width: 70%;
-	margin: 0 auto;
+	margin: 50px auto 0 auto;
 	top: 100px;
 	background-color: #F0F0F0;
 	padding: 10px 30px 30px 30px;
@@ -257,7 +257,7 @@ body{
 	margin: 0 0 10px 20px;
 }
 .productPopular img{
-	height: 300px;
+	height: 200px;
 	position: relative;
 	left: 0;
 	top: 0;
@@ -272,12 +272,12 @@ body{
 		display: block;
 	}
 	.productPopular a>div{
-		max-height: 300px;
-		width: 225px;
+		max-height: 200px;
+		width: 150px;
 		overflow: hidden;
 	}
 	.productPopular a:hover>div>img{
-		height: 350px;
+		height: 250px;
 		left: -15px;
 		top: -25px;
 	}
@@ -286,7 +286,6 @@ body{
 }
 .productPopular .splide__list{
 	width: 100%;
-	bottom: 0;
 }
 .productPopular .splide__track{
 	height: 300px;
@@ -644,6 +643,27 @@ width: 100%;
 .filter2 select{
 		width: 130px;
 	}
+
+.scrollup {
+	position: fixed;
+	background-color: black;
+	right: 20px;
+	bottom: 0px;
+	padding: 0px 10px 0px 10px;
+	border-radius: 10px 10px 0 0;
+	cursor: pointer;
+	display: none;
+	text-align: center;
+	height: 0;
+}
+.scrollup>span{
+	color: white;
+	font-size: 100px;
+	line-height: 70px;
+}
+.scrollup:hover {
+	background-color: green;
+}
 
 /* -------------------------- ВХІД / РЕЄСТРАЦІЯ -------------------------- */
 .sign{
@@ -1052,23 +1072,23 @@ width: 100%;
 	position: relative;
 	margin-top: 10px;
 }
-.container_select select{
+.productPage .container_select select{
 	width: 100%;
 	font-size: 20px;
 }
-.checkboxes{
+.productPage .checkboxes{
 	z-index: 7;
 	position: absolute;
 }
-.checkboxes>li[data-count="0"]{
+.productPage .checkboxes>li[data-count="0"]{
 	opacity: 0.5;
 	pointer-events: none;
 }
-.checkboxes>li>p{
+.productPage .checkboxes>li>p{
 	width: 100%;
 }
 
-.checkboxes>li>p>span{
+.productPage .checkboxes>li>p>span{
 	float: right;
 	margin-right: 20px;
 }

@@ -98,6 +98,9 @@
 		</ul>
 	</div>
 </section>
+<div class="scrollup">
+	<span>^</span>
+</div>
 
 <?php include(config::getLink("footer.php")); ?>
 </body>
