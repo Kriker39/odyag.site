@@ -29,6 +29,7 @@ class config{
 				"product.js" => "/views/_javascript/product.js",
 				"constructor.js" => "/views/_javascript/constructor.js",
 				"cart.js" => "/views/_javascript/cart.js",
+				"order.js" => "/views/_javascript/order.js",
 				"splide.js" => "/views/_javascript/lib/splide-2.4.21/dist/js/splide.min.js",
 				"lazyloadxt.js" => "/views/_javascript/lib/lazy-load-xt-master/dist/jquery.lazyloadxt.js",
 			),

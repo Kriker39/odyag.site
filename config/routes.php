@@ -1,6 +1,7 @@
 <?php
 return array(
 	"" => "main/index",
+	"order" => "cart/order",
 	"cart" => "cart/index",
 	"product/tp([0-9]+)p([0-9]+)" => "product/index/$1/$2",
 	"profile" => "user/profile",

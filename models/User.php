@@ -103,6 +103,20 @@ class User{
 		return $result;
 	}
 
+	public static function checkStatusUser(){
+		$return= false;
+		
+		$cookiePassword=$_COOKIE["savep"];
+
+		$status= R::getCell("SELECT status FROM user WHERE password=?", array($cookiePassword)); // status
+		
+		if($status!=null && $status=="1"){ // если статус найден
+			$return=true;
+		}
+
+		return $return;
+	}
+
 	// ---------------------------FIND
 
 	public static function findLogin($login){ // проверка существует ли логин
@@ -153,7 +167,50 @@ class User{
 		$listOrder= array();
 		
 		$listOrder=R::getAll("SELECT * FROM `order` WHERE id_user=? AND status=1 ORDER BY id DESC", array($id));
+
+		for($i=0; $i<count($listOrder); $i++){
+			$date= trim($listOrder[$i]["date"]);
+			$date= explode(" ", $date);
+			$date= explode("-", $date[0]);
+			$listOrder[$i]["date"]= $date[2].".".$date[1].".".$date[0];
+			
+			$status="Помилка";
+			switch ($listOrder[$i]["status_order"]) {
+				case '2': $status="В обробці"; break;
+				case '3': $status="Відправлено"; break;
+				case '4': $status="Отримано"; break;
+				case '5': $status="Скасовано"; break;
+				default: $status="Нове"; break;
+			}
+			$listOrder[$i]["status_order"]=$status;
+
+			if($listOrder[$i]["method_delivery"]=="post"){
+				$updAdres= explode(".", $listOrder[$i]["address_delivery"]);
+				$status="Помилка";
+				switch ($updAdres) {
+					case 'novaposhta': $status="Нова пошта"; break;
+					default: $status="Укрпошта"; break;
+				}
+				$listOrder[$i]["address_delivery"]=$status.", віділення №".$updAdres[1];
+			}
+
+			$status="Помилка";
+			switch ($listOrder[$i]["method_delivery"]) {
+				case 'punktvidachi': $status="Самовивіз"; break;
+				case 'post': $status="Пошта"; break;
+				default: $status="Кур'єр"; break;
+			}
+			$listOrder[$i]["method_delivery"]=$status;
+
+			$updNumber= explode("-", $listOrder[$i]["number"]);
+			$listOrder[$i]["number"]= "+380 (".$updNumber[0].") ".substr($updNumber[1], 0,3)."-".substr($updNumber[1], 3,2)."-".substr($updNumber[1], 5,2);
+
+			$listOrder[$i]["method_pay"]= "Готівка";
+
+		}
 		
 		return $listOrder;
 	}
+
+	
 }

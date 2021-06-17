@@ -11,7 +11,7 @@
 <?php include(config::getLink("header.php")); ?>
 
 <?php if($check): ?>
-<section class="cart">
+<section class="cart" <?php if(!$status){echo "data-status='0'";}else{echo "data-status='1'";} ?>>
 	<div class="cart_list">
 		<div class="cart_name"><h2>Кошик</h2><div><span class="cart_count_product"><?php echo count($listProduct); ?></span> ТОВАР(-И)</div></div>
 		<div class="cart_info"><img src="/views/_img/icon_info.png">Не відкладайте купування. Додавання товарів у кошик не є бронюванням</div>
@@ -50,7 +50,7 @@
 							<div class=\"cart_item_sum\">
 								<div class=\"cart_item_sum_left\">
 									<input type=\"number\" min=\"1\" max=\"".$product["size"]."\" value=\"1\">
-									<div class=\"cart_item_sum_error\">Вказана кількість товару наразі не доступна</div>	
+									<div class=\"cart_item_sum_error\"><span><img src=\"/views/_img/icon_info.png\"> Значення змінено.</span></div>	
 								</div>
 								<div class=\"cart_item_sum_right\">";
 						if($product["discount"]>0){

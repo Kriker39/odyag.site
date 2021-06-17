@@ -40,12 +40,16 @@
 						echo "<tr class=\"table_item item".$key."\">
 								<td colspan=\"6\">
 									<table>
-										<tr><td>Назва</td><td>Колір</td><td>Розмір</td><td>Ціна</td><td>К-сть</td><td>Сума</td></tr>";
+										<tr class='data_profile_infoOrderMain'><td>Назва</td><td>Колір</td><td>Розмір</td><td>Ціна</td><td>К-сть</td><td>Сума</td></tr>";
 						foreach ($listProduct[$key] as $key2 => $product) {
 							$sum= (int)$product[2]*(int)$product[3];
 							
 							echo "<tr><td><a href=\"/product/tp".$product[6]."p".$product[0]."\">".$product[4]." ".$product[5]."</a></td><td><img src=\"/data/product/color/tp".$product[6]."p".$product[0].".jpg\"></td><td>".$product[1]."</td><td>".$product[2]." UAH</td><td>".$product[3]."</td><td>".$sum." UAH</td></tr>";		
 						}
+						echo "<tr><td colspan='7'><hr></td></tr>";
+						echo "<tr><td>Адреса доставки:</td><td colspan='5'>".$order["address_delivery"]."</td></tr>";
+						echo "<tr><td>Номер телефону:</td><td colspan='5'>".$order["number"]."</td></tr>";
+						echo "<tr><td>Спосіб доствки:</td><td colspan='2'>".$order["method_delivery"]."</td><td>Спосіб оплати:</td><td colspan='2'>".$order["method_pay"]."</td></tr>";
 						echo "</table>
 								</td>
 							</tr>";

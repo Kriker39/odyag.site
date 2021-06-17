@@ -1,7 +1,10 @@
 var errorSignIn=[];
 var errorSignUp=[];
+var tmr=0;
+var stts;
 
 jQuery(document).ready(function(){
+	stts=jQuery(".cart").attr("data-status");
 	startSignEvent();
 });
 
@@ -67,6 +70,10 @@ function hishBtnRegOrderError(text=null){
 	if(text==null){
 		jQuery(".cart_regOrder_error").html();
 		jQuery(".cart_regOrder_error").css("opacity", "0");
+		jQuery(".cart_product_list>li .cart_item_sum_error").each(function(id,val){
+			jQuery(this).css("display","none");
+			jQuery(this).parent().children("input").css({"border-color":"", "background-color":""});
+		});
 	}else{
 		jQuery(".cart_regOrder_error").html(text);
 		jQuery(".cart_regOrder_error").css("opacity", "1");
@@ -74,18 +81,22 @@ function hishBtnRegOrderError(text=null){
 }
 
 function eventBtnRegOrder(){
-	jQuery(".cart_regOrder").on("click", function(){
-		var elemLi= jQuery(".cart_product_list>li");
-		var mas=[];
-		elemLi.each(function(id, val){
-			if(!isNaN(jQuery(val).attr("data-count"))){
-				var txt= jQuery(val).attr("data-id")+"-"+jQuery(val).attr("data-count");
-				mas.push(txt);
-			}
+	if(stts!="0"){
+		jQuery(".cart_regOrder").on("click", function(){
+			var elemLi= jQuery(".cart_product_list>li");
+			var mas=[];
+			elemLi.each(function(id, val){
+				if(!isNaN(jQuery(val).attr("data-count"))){
+					var txt= jQuery(val).attr("data-id")+"-"+jQuery(val).attr("data-size")+"-"+jQuery(val).attr("data-count");
+					mas.push(txt);
+				}
+			});
+			var idsizecount= mas.join(".");
+			doRegOrder(idsizecount);
 		});
-		var idcount= mas.join(".");
-		doRegOrder(idcount);
-	});
+	}else{
+		hishBtnRegOrderError("Профіль заблоковано. Неможливо перейти до оформлення.");
+	}
 }
 
 function changeCount(){
@@ -119,26 +130,48 @@ function changeSum(){
 	}
 }
 
+function dotmr(val){
+	val--;
+	tmr=val;
+	if(val>0){
+		setTimeout(function(){dotmr(val);}, 1000);
+	}
+}
 
-function doRegOrder(idcount){
+function doRegOrder(idsizecount){
 	hishBtnRegOrder(0);
 	hishBtnRegOrderError();
-	Router("regorder", idcount);
+	Router("regorder", idsizecount);
+	dotmr(6);
 	backsignin();
 }
 
 function backsignin(){
-	if(resultRouter==false){ // если результата нет, повторяет эту функцию каждую 1 сек
+	if(tmr>0 || resultRouter==false){ // если результата нет, повторяет эту функцию каждую 1 сек
 		setTimeout(backsignin, 1000);
 	}
 	else if(resultRouter==true){ // если данные совпали, переход
 		hishBtnRegOrder(1);
-		console.log("ok");
+		$(location).attr('href',"/order/");
 	}else{ // если данные не совплаи
-		console.log(resultRouter);
-		hishBtnRegOrder(1);
-		hishBtnRegOrderError(resultRouter);
+		
 
+		if(typeof resultRouter=="object" && Object.keys(resultRouter).length>0){
+			for(var [key, val] of Object.entries(resultRouter)){
+				jQuery(".cart_product_list>li[data-id=\""+val[0]+"\"][data-size=\""+val[1]+"\"] .cart_item_sum_error").css("display", "inline-block");
+				jQuery(".cart_product_list>li[data-id=\""+val[0]+"\"][data-size=\""+val[1]+"\"] .cart_item_sum_left>input").attr("max", val[2]);
+				jQuery(".cart_product_list>li[data-id=\""+val[0]+"\"][data-size=\""+val[1]+"\"] .cart_item_sum_left>input").val(val[2]);
+				jQuery(".cart_product_list>li[data-id=\""+val[0]+"\"][data-size=\""+val[1]+"\"] .cart_item_sum_left>input").css({"border-color":"#005FBF", "background-color":"#D3E9FF"});
+				jQuery(".cart_product_list>li[data-id=\""+val[0]+"\"][data-size=\""+val[1]+"\"]").attr("data-count", val[2]);
+			}
+			hishBtnRegOrderError("Кількість деяких товарів змінилась.<br>Не вдалося перейти.");
+			changeSum();
+			changeCount();
+		}else{
+			hishBtnRegOrderError("Невідома помилка. Не вдалося перейти.");
+		}
+		hishBtnRegOrder(1);
+		
 		resultRouter=false;
 	}
 }
