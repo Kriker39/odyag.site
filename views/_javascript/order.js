@@ -5,6 +5,7 @@ var txt="";
 
 jQuery(document).ready(function(){
 	startSignEvent();
+	doRadioWork();
 });
 
 function startSignEvent(){
@@ -17,6 +18,8 @@ function startSignEvent(){
 		jQuery(".order_map>.active").removeClass("active");
 		jQuery(".order_map>.map"+jQuery(this).val()).addClass("active");
 	});
+
+	jQuery(".addressSelect_delivery").trigger("change");
 
 	jQuery("input[name='phoneid']").on("change", function(){
 		changeNumber(this, 2);

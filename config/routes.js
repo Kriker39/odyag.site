@@ -4,5 +4,6 @@ var routes=[
 ["addincart", "cart/addProduct"],
 ["regorder", "cart/regOrder"],
 ["updateconstructor", "category/updateConstructor"],
-["addorder", "cart/addOrder"]
+["addorder", "cart/addOrder"],
+["updateuserinfo", "user/updateInfo"]
 ];

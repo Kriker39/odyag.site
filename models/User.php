@@ -17,12 +17,17 @@ class User{
 
 		return $listProduct;
 	}
+
 	public static function writeUserInDb($email, $login, $pass){ // заносит пользователя в бд
 		$user= R::dispense("user");
 		$user->email = $email;
 		$user->login = $login;
 		$user->password = password_hash($pass, PASSWORD_DEFAULT);
 		$rslt= R::store($user);
+	}
+
+	public static function UpdateUserInfo($id, $name, $secondname, $lastname, $typepost, $address, $phone){ // обновить личную инфу
+		R::exec("UPDATE user SET name=?, second_name=?, last_name=?, `number`=?, method_delivery=?, address_delivery=? WHERE id=?", array($name, $secondname, $lastname, $phone, $typepost, $address, $id));
 	}
 
 	// ---------------------------SAVE
@@ -210,6 +215,42 @@ class User{
 		}
 		
 		return $listOrder;
+	}
+
+	public static function getListDataUser($id){ // получить данные пользователя
+		$listData= false;
+		
+		$userInfo=R::getRow("SELECT name, second_name, last_name, `number`, method_delivery, address_delivery FROM user WHERE id=?", array($id));
+
+		if($userInfo){
+			if($userInfo["method_delivery"]==""){
+				$userInfo["method_delivery"]="curier";
+			}else if($userInfo["method_delivery"]=="post"){
+				if($userInfo["address_delivery"]==""){
+					$userInfo["address_delivery"]="novaposhta";
+				}else{
+					$mas= explode(".", $userInfo["address_delivery"]);
+					if(isset($mas[1])){
+						$userInfo["numpost"]=$mas[1];
+					}
+					$userInfo["address_delivery"]=$mas[0];
+				}
+			}
+			if($userInfo["number"]!=""){
+				$mas=explode(".", $userInfo["number"]);
+				if(isset($mas[0])){
+					$userInfo["codenumber"]=$mas[0];
+				}
+				if(isset($mas[1])){
+					$userInfo["number"]=$mas[1];
+				}else{
+					unset($userInfo["number"]);
+				}
+			}
+			$listData=$userInfo;
+		}
+		
+		return $listData;
 	}
 
 	

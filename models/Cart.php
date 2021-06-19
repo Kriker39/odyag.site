@@ -319,4 +319,41 @@ class Cart{
 
 		return $return;
 	}
+
+	public static function getShortDataProductByCookie(){
+		$return= array();
+		
+		if(isset($_COOKIE["Order"])){
+			$listOrder=explode(".", $_COOKIE["Order"]);
+			$listId=array();
+			foreach($listOrder as $order){
+				$masOrder=explode("-", $order);
+				array_push($listId, $masOrder[0]);
+			}
+
+			$listProduct= R::getAll("SELECT id, tag, name, company FROM product WHERE id IN (".R::genSlots($listId).")", $listId);
+
+			foreach($listOrder as $order){
+				$masOrder=explode("-", $order);
+				foreach($listProduct as $product){
+					if($product["id"]==$masOrder[0]){
+						$secmas=array($product["name"], $product["company"], $masOrder[1], $masOrder[2], $product["tag"], $product["id"]);
+						array_push($return, $secmas);
+					}
+				}
+			}
+		}
+
+		return $return;
+	}
+
+	public static function getCountProductByListProduct($listProduct){
+		$return= 0;
+		
+		foreach($listProduct as $product){
+			$return+=$product[3];
+		}
+
+		return $return;
+	}
 }

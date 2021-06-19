@@ -811,11 +811,9 @@ width: 100%;
 	left: 15%;
 	right: 15%;
 	top: 150px;
+	display: flex;
+	flex-direction: row;
 }
-	.container_profileInfo div{
-		display: inline-block;
-		vertical-align: top;
-	}
 .menu_profile li{
 	list-style-type: none;
 	padding: 15px 0;
@@ -880,6 +878,96 @@ width: 100%;
 }
 .data_profile_infoOrderMain>td{
 	color: white;
+}
+
+/* -------------------------- PROFILE_INFO -------------------------- */
+.info_profile{
+	width: calc(100% - 200px);
+	display: flex;
+	flex-direction: column;
+	margin-left: 50px;
+}
+	.info_profile>div{
+		display: flex;
+		flex-direction: row;
+	}
+.info_profile_left{
+	width: 200px;
+	line-height: 40px;
+	vertical-align: middle;
+}
+.info_profile_right{
+	width: 80%;
+	line-height: 40px;
+	position: relative;
+}
+.info_profile_right>input, .info_profile_right>select{
+	width: 100%;
+	font-size: inherit;
+	vertical-align: middle;
+}
+.info_profile_right>select{
+	cursor: pointer;
+}
+.info_profile_right>input[name="phoneid"]{
+	width: 50px;
+}
+.info_profile_right>input[name="phonenumber"]{
+	width: 120px;
+}
+.info_profile_hr>div>hr{
+	margin: 20px 0 10px 0;
+}
+.info_profile_delivery{
+	display: none;
+}
+.btrSaveUserInfo{
+	position: relative;
+	background-color: green;
+	text-align: center;
+	cursor: pointer;
+	border: 1px green solid;
+}
+	.btrSaveUserInfo>span{
+		color: white;
+	}
+	.btrSaveUserInfo>img{	
+		vertical-align: middle;
+	}
+	.btrSaveUserInfo:hover{
+		background-color: lightgreen;
+		border: 1px lightgreen solid;
+	}
+	.btrSaveUserInfo:active{
+		border: 1px green solid;
+	}
+	.btrSaveUserInfo:active span{
+		color: green;
+	}
+	.btrSaveUserInfo>img{
+		display: none;
+	}
+.info_profile_updateInfoError{
+	opacity: 0;
+	height: 0;
+	transition: .3s all linear;
+}
+.info_profile_updateInfoError>.info_profile_right{
+	border: 1px red solid;
+	padding: 5px;
+	font-size: 15px;
+	line-height: normal;
+	color: black;
+	margin: 5px 0;
+	background-color: #FFDBE1;
+}
+.product_updateInfo_accept{
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 4;
+	border-radius: 8px;
+	transition: .2s all linear;
 }
 
 /* -------------------------- PAGE PRODUCT -------------------------- */

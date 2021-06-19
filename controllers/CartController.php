@@ -27,8 +27,11 @@ class CartController{
 	public static function actionOrder(){
 		if(isset($_COOKIE["Order"])){
 			if(isset($_COOKIE["savel"]) && isset($_COOKIE["savep"]) && User::getProfileLink()=="profile"){
-				
-				
+				$listProduct= Cart::getShortDataProductByCookie();
+				$countItem=Cart::getCountProductByListProduct($listProduct);
+
+				$userid= User::getIdUser();
+				$dataUser= User::getListDataUser($userid);
 				require_once(ROOT.'/views/order/index.php');
 			}else{
 				header('Location: /sign/');

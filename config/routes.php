@@ -4,6 +4,7 @@ return array(
 	"order" => "cart/order",
 	"cart" => "cart/index",
 	"product/tp([0-9]+)p([0-9]+)" => "product/index/$1/$2",
+	"profile/info" => "user/info",
 	"profile" => "user/profile",
 	"sign" => "user/sign",
 	"constructor" => "category/constructor",
