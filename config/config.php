@@ -27,6 +27,7 @@ class config{
 				"sign.js" => "/views/_javascript/sign.js",
 				"profile.js" => "/views/_javascript/profile.js",
 				"product.js" => "/views/_javascript/product.js",
+				"admin.js" => "/views/_javascript/admin.js",
 				"constructor.js" => "/views/_javascript/constructor.js",
 				"cart.js" => "/views/_javascript/cart.js",
 				"order.js" => "/views/_javascript/order.js",

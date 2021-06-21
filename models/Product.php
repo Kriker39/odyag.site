@@ -207,6 +207,22 @@ class Product{
 
 		return $rslt;
 	}
+
+	public static function checkExistSizeById($id, $size){
+		$return= false;
+		$rslt= R::getCell("SELECT size FROM product WHERE id=?", array($id));
+
+		$listSize= explode("-", $rslt);
+		foreach($listSize as $sizeitem){
+			$masSize= explode(".", $sizeitem);
+			if(isset($masSize[1]) && $size==$masSize[1]){
+				$return=true;
+				break;
+			}
+		}
+
+		return $return;
+	}
 	
 	//--------------FIND FUNCTIONS------------
 

@@ -800,19 +800,14 @@ width: 100%;
 
 /* -------------------------- PROFILE -------------------------- */
 .profilePage{
-	width: 100%;
-	height: 1000px;
-	vertical-align: middle;
+	width: 100%;	
 	font-size: 20px;
-	
 }
 .container_profileInfo{
-	position: absolute;
-	left: 15%;
-	right: 15%;
-	top: 150px;
+	margin: 60px 15% 50px 15%;
+	
 	display: flex;
-	flex-direction: row;
+	flex-direction: row;align-items: flex-start;
 }
 .menu_profile li{
 	list-style-type: none;
@@ -878,6 +873,9 @@ width: 100%;
 }
 .data_profile_infoOrderMain>td{
 	color: white;
+}
+.profilePage_adminPanel>a{
+	color: blue;
 }
 
 /* -------------------------- PROFILE_INFO -------------------------- */
@@ -1921,6 +1919,136 @@ width: 100%;
 		padding: 0 5px 10px 5px;
 		transition: .2s all linear;
 	}
+
+/* -------------------------- ADMIN -------------------------- */
+.adminpanel{
+	padding: 50px 10%;
+	text-align: center;
+}
+	.adminpanel>a{
+		display: block;
+		font-size: 20px;
+		margin: 20px 0;
+		text-decoration: none;
+		background-color: lightgray;
+		padding: 10px 0;
+	}
+		.adminpanel>a:hover{
+			background-color: #F0F0F0;
+		}
+		.adminpanel>a:active{
+			background-color: green;
+		}
+.adminPage{
+	width: 100%;
+	font-size: 18px;
+}
+.adminPage_filterOrder{
+	background-color: green;
+	width: 90%;
+	height: 100px;
+	margin: 0 auto;
+}
+.adminPage_listOrder_btn{
+	background-color: #A6B5FF;
+	cursor: pointer;
+	text-align: center;
+	position: relative;
+}
+	.adminPage_listOrder_btn>img{
+		display: none;
+		height: 22px;
+	}
+	.adminPage_listOrder_btn:hover{
+		background-color: #CDD5FF;
+	}
+	.adminPage_listOrder_btn:active{
+		background-color: #72E472;
+	}
+.adminPage_listOrder{
+	width: 90%;
+	margin: 50px auto;
+}	
+	.adminPage_listOrder input, .adminPage_listOrder select{
+		font-size: 18px;
+	}
+	.adminPage_listOrder>table{
+		width: 100%;
+		border: 1px black solid;
+		border-collapse: collapse;
+	}
+	.adminPage_listOrder>table>tbody>tr>td{
+		border: 1px black solid;
+		padding: 5px;
+	}
+	.adminPage_listOrder textarea{
+		resize: vertical;
+		max-height: 200px;
+		min-height: 35px;
+	}
+.adminPage_listOrder .active{
+	display: table-cell;
+}
+.type_delivery{
+	display: none;
+}
+	.type_delivery, .type_delivery input, .type_delivery select{
+		max-width: 200px;
+	}
+.adminPage_table2{
+	background-color: silver;
+	display: none;
+}
+.adminPage_table2>td>table{
+	width: 100%;
+	border: 1px black solid;
+	border-collapse: collapse;
+	background-color: white;
+	margin: 20px 0;
+}
+.adminPage_table2>td>table>tbody>tr>td{
+	border: 1px silver solid;
+	padding: 5px;
+}
+.adminPage_table2 tr[data-delete="true"]{
+	opacity: 0.5;
+}
+.adminPage_table2 .adminPage_btnDelete{
+	width: 190px;
+}
+.adminPage_table1_showItem{
+	font-size: 40px;
+	text-align: center;
+}
+	.adminPage_table1_showItem:hover{
+		background-color: lightgray;
+	}
+	.adminPage_table1_showItem:active{
+		background-color: green;
+	}
+.adminPage_table2_title{
+	background-color: black;
+}
+	.adminPage_table2_title>td{
+		color: white;
+	}
+.adminPage_table2_updateListProduct input{
+	width: 98%;
+	margin: 0 auto;
+}
+.adminPage_errorMsg{
+	position:absolute; 
+	padding: 0 10px;
+	margin-top: 5px;
+	background-color: pink;
+	border: 1px red solid;
+}
+.adminPage_table2_updateListProduct td{
+	position: relative;
+}
+.adminPage_btnAdd{
+	width: 120px
+}
 
 
 /*  MEDIA ЗМІНА СТИЛЮ ПІД ІНШІ РОЗМІРИ ВІКНА  */

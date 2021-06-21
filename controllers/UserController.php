@@ -3,8 +3,12 @@
 class UserController{
 
 	public static function actionSign(){
-
-		require_once(ROOT.'/views/'.User::getProfileLink().'/index.php');
+		if(User::getProfileLink()=="sign"){
+			require_once(ROOT.'/views/sign/index.php');
+		}else{
+			header('Location: /profile/');
+			exit();
+		}
 
 		return true;
 	}
@@ -14,10 +18,17 @@ class UserController{
 		if($link=="profile"){
 			$id= User::getIdUser();
 			$listOrder= User::getListOrderById($id);
-			$listProduct= User::encodeInfoProduct($listOrder);
-			$listProduct= Product::getDataProductForOrder($listProduct);
+			if($listOrder!="empty"){
+				$listProduct= User::encodeInfoProduct($listOrder);
+				$listProduct= Product::getDataProductForOrder($listProduct);
+			}
+			$admin= User::checkAdmin();
+			require_once(ROOT.'/views/profile/index.php');
+		}else{
+			header('Location: /sign/');
+			exit();
 		}
-		require_once(ROOT.'/views/'.$link.'/index.php');
+		
 		return true;
 	}
 
@@ -29,7 +40,8 @@ class UserController{
 
 			require_once(ROOT.'/views/profile_info/index.php');
 		}else{
-			require_once(ROOT.'/views/sign/index.php');
+			header('Location: /sign/');
+			exit();
 		}
 		
 		return true;

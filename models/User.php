@@ -99,6 +99,20 @@ class User{
 		return $result;
 	}
 
+	public static function checkAdmin(){ // проверяет являеться ли пользователь админом
+		$return=false;
+		$id= self::getIdUser();
+
+		if(is_numeric($id)){
+			$listAdmin= R::getCell("SELECT user_id FROM admin WHERE id=? AND status=1", array($id));
+			if(is_numeric($listAdmin)){
+				$return=true;
+			}
+		}
+
+		return $return;
+	}
+
 	public static function checkEnableCookies(){ // проверяет включены ли куки
 		setcookie('checkcookie', "1");
 		$result=false;
@@ -109,14 +123,18 @@ class User{
 	}
 
 	public static function checkStatusUser(){
-		$return= false;
+		$return= true;
 		
-		$cookiePassword=$_COOKIE["savep"];
+		if(User::getProfileLink()=="profile"){
+			if(isset($_COOKIE["savep"])){	
+				$cookiePassword=$_COOKIE["savep"];
 
-		$status= R::getCell("SELECT status FROM user WHERE password=?", array($cookiePassword)); // status
-		
-		if($status!=null && $status=="1"){ // если статус найден
-			$return=true;
+				$status= R::getCell("SELECT status FROM user WHERE password=?", array($cookiePassword)); // status
+				
+				if($status==null || $status!="1"){
+					$return=false;
+				}
+			}
 		}
 
 		return $return;
@@ -173,45 +191,49 @@ class User{
 		
 		$listOrder=R::getAll("SELECT * FROM `order` WHERE id_user=? AND status=1 ORDER BY id DESC", array($id));
 
-		for($i=0; $i<count($listOrder); $i++){
-			$date= trim($listOrder[$i]["date"]);
-			$date= explode(" ", $date);
-			$date= explode("-", $date[0]);
-			$listOrder[$i]["date"]= $date[2].".".$date[1].".".$date[0];
-			
-			$status="Помилка";
-			switch ($listOrder[$i]["status_order"]) {
-				case '2': $status="В обробці"; break;
-				case '3': $status="Відправлено"; break;
-				case '4': $status="Отримано"; break;
-				case '5': $status="Скасовано"; break;
-				default: $status="Нове"; break;
-			}
-			$listOrder[$i]["status_order"]=$status;
-
-			if($listOrder[$i]["method_delivery"]=="post"){
-				$updAdres= explode(".", $listOrder[$i]["address_delivery"]);
+		if(!empty($listOrder)){
+			for($i=0; $i<count($listOrder); $i++){
+				$date= trim($listOrder[$i]["date"]);
+				$date= explode(" ", $date);
+				$date= explode("-", $date[0]);
+				$listOrder[$i]["date"]= $date[2].".".$date[1].".".$date[0];
+				
 				$status="Помилка";
-				switch ($updAdres) {
-					case 'novaposhta': $status="Нова пошта"; break;
-					default: $status="Укрпошта"; break;
+				switch ($listOrder[$i]["status_order"]) {
+					case '2': $status="В обробці"; break;
+					case '3': $status="Відправлено"; break;
+					case '4': $status="Отримано"; break;
+					case '5': $status="Скасовано"; break;
+					default: $status="Нове"; break;
 				}
-				$listOrder[$i]["address_delivery"]=$status.", віділення №".$updAdres[1];
+				$listOrder[$i]["status_order"]=$status;
+	
+				if($listOrder[$i]["method_delivery"]=="post"){
+					$updAdres= explode(".", $listOrder[$i]["address_delivery"]);
+					$status="Помилка";
+					switch ($updAdres) {
+						case 'novaposhta': $status="Нова пошта"; break;
+						default: $status="Укрпошта"; break;
+					}
+					$listOrder[$i]["address_delivery"]=$status.", віділення №".$updAdres[1];
+				}
+	
+				$status="Помилка";
+				switch ($listOrder[$i]["method_delivery"]) {
+					case 'punktvidachi': $status="Самовивіз"; break;
+					case 'post': $status="Пошта"; break;
+					default: $status="Кур'єр"; break;
+				}
+				$listOrder[$i]["method_delivery"]=$status;
+	
+				$updNumber= explode("-", $listOrder[$i]["number"]);
+				$listOrder[$i]["number"]= "+380 (".$updNumber[0].") ".substr($updNumber[1], 0,3)."-".substr($updNumber[1], 3,2)."-".substr($updNumber[1], 5,2);
+	
+				$listOrder[$i]["method_pay"]= "Готівка";
+	
 			}
-
-			$status="Помилка";
-			switch ($listOrder[$i]["method_delivery"]) {
-				case 'punktvidachi': $status="Самовивіз"; break;
-				case 'post': $status="Пошта"; break;
-				default: $status="Кур'єр"; break;
-			}
-			$listOrder[$i]["method_delivery"]=$status;
-
-			$updNumber= explode("-", $listOrder[$i]["number"]);
-			$listOrder[$i]["number"]= "+380 (".$updNumber[0].") ".substr($updNumber[1], 0,3)."-".substr($updNumber[1], 3,2)."-".substr($updNumber[1], 5,2);
-
-			$listOrder[$i]["method_pay"]= "Готівка";
-
+		}else{
+			$listOrder="empty";
 		}
 		
 		return $listOrder;
