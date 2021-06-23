@@ -6,5 +6,6 @@ var routes=[
 ["updateconstructor", "category/updateConstructor"],
 ["addorder", "cart/addOrder"],
 ["updateuserinfo", "user/updateInfo"],
-["getproductforadmin", "admin/returnProductData"]
+["getproductforadmin", "admin/returnProductData"],
+["updateorderadmin", "admin/updateOrder"]
 ];

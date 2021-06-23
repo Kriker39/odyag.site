@@ -156,4 +156,38 @@ class AdminController{
 		
 		return true;
 	}
+
+	public static function jsactionUpdateOrder($dataForUpdate){
+		$err=true;
+		$listData=explode("|", $dataForUpdate);
+		
+		if(Admin::checkOrderById($listData[0])){
+			$rslt= Admin::updateOrderData($listData);
+			
+			if($rslt==1 || $rslt==0){
+				$rslt= Admin::updateUserData($listData[8], $listData[9]);
+				if($rslt==1 || $rslt==0){
+					$rslt= Admin::updateOrderProduct($listData[0], $listData[10], $listData[11]);
+					if($rslt==1 || $rslt==0){
+						$err=false;
+						echo true;
+					}else{
+						$err="Не вдалось редагувати список товарів.<br>Дані замовлення і користувача редаговано.";
+					}
+				}else{
+					$err="Не вдалось редагувати статус користувача.<br>Дані замовлення редаговано.";
+				}
+			}else{
+				$err="Не вдалось редагувати замовлення";
+			}
+		}else{
+			$err="Замовлення з таким кодом не знайдено";
+		}
+
+		if($err!=false){
+			echo json_encode($err);
+		}
+		
+		return true;
+	}
 }

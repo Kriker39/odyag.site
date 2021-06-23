@@ -1944,10 +1944,8 @@ width: 100%;
 	font-size: 18px;
 }
 .adminPage_filterOrder{
-	background-color: green;
 	width: 90%;
-	height: 100px;
-	margin: 0 auto;
+	margin: 20px auto 0 auto;
 }
 .adminPage_listOrder_btn{
 	background-color: #A6B5FF;
@@ -2049,7 +2047,9 @@ width: 100%;
 .adminPage_btnAdd{
 	width: 120px
 }
-
+.adminPage_btnUpdate{
+	z-index: 5;
+}
 
 /*  MEDIA ЗМІНА СТИЛЮ ПІД ІНШІ РОЗМІРИ ВІКНА  */
 

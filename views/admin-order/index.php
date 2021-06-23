@@ -10,9 +10,10 @@
 <?php include(config::getLink("header.php")); ?>
 
 <section class="adminPage">
-	<div class="adminPage_filterOrder">
+	<!-- <div class="adminPage_filterOrder">
 		Пошук: <input type="text" name="searchOrder">
-	</div>
+	</div> -->
+	<div class="adminPage_filterOrder"><h2>ЗАМОВЛЕННЯ</h2></div>
 	<div class="adminPage_listOrder">
 		<table>
 			<tr>
@@ -26,11 +27,12 @@
 				<td>Спосіб оплати</td>
 				<td>Сума</td>
 				<td>Статус замовлення</td>
+				<td>Статус</td>
 				<td>Детальніше</td>
 			</tr>
 			<?php foreach($listFullDataOrder as $order): ?>
 			<tr>
-				<td class="adminPage_listOrder_btn">Оновити</td>
+				<td class="adminPage_listOrder_btn adminPage_btnUpdate"><span>Оновити</span><img src="/views/_img/loader2.gif"></td>
 				<td><?php echo $order[0]["id"]; ?></td>
 				<td><?php echo explode(" ", $order[0]["date"])[0]."<br>".explode(" ", $order[0]["date"])[1]; ?></td>
 				<td><textarea><?php echo $order[0]["recipient"]; ?></textarea></td>
@@ -81,7 +83,7 @@
 			</tr>
 			<tr class="adminPage_table2">
 				<td colspan="12">
-					<table>
+					<table class="adminPage_userData">
 						<tr class="adminPage_table2_title">
 							<td>Номер клієнта</td>
 							<td>Ім'я</td>
