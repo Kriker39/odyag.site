@@ -13,13 +13,7 @@
 		<ul>
 			<?php 
 				foreach ($secondCategory as $val) {
-					echo "<li><a href=\"/category/2/".$val["id"]."\">".mb_strtoupper($val["name"])."</a><ul>";
-					foreach ($listCategory as $val2) {
-						if( $val2["id_second_cat"]==$val["id"]){
-							echo "<li><a href=\"/category/2/".$val["id"]."/".$val2["id"]."\">".$val2["name"]."</a></li>";
-						}
-					}
-					echo "</ul></li>";
+					echo "<li><a href=\"/category/".$firstCat."/".$val["id"]."\">".mb_strtoupper($val["name"])."</a></li>";
 				}
 			?>
 		</ul>
@@ -27,52 +21,56 @@
 
 	<div class="product">
 		<div class="container_filter">
-			<div>
-				Сортувати за:
-				<div class="multiselect filter1">	
-					<div class="container_select">
-						<select>
-							<option>Новизною</option>
-						</select>
-						<div class="overSelect"></div>
+				<div>
+					<?php if(!empty($listPopularProduct)): ?>
+					Сортувати за:
+					<div class="multiselect filter1">	
+						<div class="container_select">
+							<select>
+								<option>Новизною</option>
+							</select>
+							<div class="overSelect"></div>
+						</div>
+						<ul class="checkboxes">
+							<li><input type="radio" checked="checked" name="main"> <p>Новизною</p></li>
+							<li><input type="radio"> <p>Популярністю</p></li>
+							<li><input type="radio"> <p>Зростанням ціни</p></li>
+							<li><input type="radio"> <p>Спаданням ціни</p></li>
+						</ul>
 					</div>
-					<ul class="checkboxes">
-						<li><input type="radio" checked="checked" name="main"> <p>Новизною</p></li>
-						<li><input type="radio"> <p>Популярністю</p></li>
-						<li><input type="radio"> <p>Зростанням ціни</p></li>
-						<li><input type="radio"> <p>Спаданням ціни</p></li>
-					</ul>
-				</div>
-				Розмір:
-				<div class="multiselect filter2">	
-					<div class="container_select">
-						<select>
-							<option>Виберіть розмір</option>
-						</select>
-						<div class="overSelect"></div>
+					Розмір:
+					<div class="multiselect filter2">	
+						<div class="container_select">
+							<select>
+								<option>Виберіть розмір</option>
+							</select>
+							<div class="overSelect"></div>
+						</div>
+						<ul class="checkboxes">
+							<?php 
+								foreach ($listSize as $val) {
+									echo "<li><input type=\"checkbox\"> <p>".$val."</p></li>";
+								}
+							?>
+						</ul>
 					</div>
-					<ul class="checkboxes">
-						<?php 
-							foreach ($listSize as $val) {
-								echo "<li><input type=\"checkbox\"> <p>".$val."</p></li>";
-							}
-						?>
-					</ul>
-				</div>
-				<div class="reset_filter button_filter">
-					СКИНУТИ ФІЛЬТР
-				</div>
-				<div class="submit_filter button_filter">
-					ФІЛЬТРУВАТИ
-				</div>
-				<div class="empty_filter button_filter">
-					|
+					<div class="reset_filter button_filter">
+						СКИНУТИ ФІЛЬТР
+					</div>
+					<div class="submit_filter button_filter">
+						ФІЛЬТРУВАТИ
+					</div>
+					<div class="empty_filter button_filter">
+						|
+					</div>
+				<?php else: ?>
+					<div class="notfound">Категорія пуста</div>
+				<?php endif; ?>
 				</div>
 			</div>
-		</div>
 		<ul id="listProduct">
 			<?php
-				foreach ($listLastProduct as $val) {
+				foreach ($listPopularProduct as $val) {
 					$price= intval($val["price"]);
 					$discount= intval($val["discount"]);
 					$endPrice= 0;

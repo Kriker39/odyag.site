@@ -11,11 +11,9 @@
 
 <section class="adminpanel">
 	<h2>Адмін панель</h3>
-	<a href="/admin/1">Замовлення</a>
-	<a href="/admin/2">Товари</a>
-	<a href="/admin/3">Акції</a>
-	<a href="/admin/4">Користувачі</a>
-	<a href="/admin/5">Категорії</a>
+	<a href="/admin/1" target="_blank">Замовлення</a>
+	<a href="/admin/2" target="_blank">Товари</a>
+	<a href="/admin/3" target="_blank">Акції</a>
 </section>
 
 <?php include(config::getLink("footer.php")); ?>

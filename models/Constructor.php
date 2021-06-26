@@ -9,7 +9,7 @@ class Constructor{
 			}
 		}
 
-		$rslt= R::getAll("SELECT id, tag, name, company, size, length FROM product WHERE id IN (".R::genSlots($listId).")", $listId);
+		$rslt= R::getAll("SELECT id, tag, name, company, size, length FROM product WHERE constructor_status=1 AND id IN (".R::genSlots($listId).")", $listId);
 
 		$newRslt= array();
 

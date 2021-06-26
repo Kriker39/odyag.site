@@ -39,6 +39,53 @@ class Product{
 
 	//--------------GET FUNCTIONS------------
 
+	public static function getProductForPromotionById($id){
+		$listReturn=array();
+		$listPromotion=  R::getCell( 'SELECT products FROM promotion WHERE status=1 AND id=?', array($id));
+
+		if(!empty($listPromotion)){
+			$listId= explode(".", $listPromotion);
+			
+			$listReturn=  R::getAll( 'SELECT id, tag, name, company, price, discount, size, views, id_third_cat FROM product WHERE status=1 AND id IN ('.R::genSlots($listId).') ORDER BY id DESC', $listId);
+		}
+
+		return $listReturn;
+	}
+
+	public static function getListPromotion(){
+		$listPromotion=  R::getCol( 'SELECT id FROM promotion WHERE status=1 ORDER BY id DESC');
+
+		return $listPromotion;
+	}
+
+	public static function getPopularProductForMain(){
+		$listProduct=  R::getAll( 'SELECT id, tag, company, price, discount FROM product WHERE status=1 ORDER BY views DESC LIMIT 10');
+
+		foreach($listProduct as $key=>$product){
+			if($product["discount"]>0){
+				$sum= $product["price"]-(($product["price"]*$product["discount"])/100);
+				$listProduct[$key]["discount"]=round($sum);
+			}
+		}
+
+		return $listProduct;
+	}
+
+	public static function getLastProductForMain($firstCat){
+		$listId3cat= R::getCol("SELECT id FROM third_category WHERE id_first_cat=?", array($firstCat));
+
+		$listProduct=  R::getAll( 'SELECT id, tag, company, price, discount FROM product WHERE status=1 AND id_third_cat IN ('.R::genSlots($listId3cat).') ORDER BY id DESC LIMIT 10', $listId3cat);
+
+		foreach($listProduct as $key=>$product){
+			if($product["discount"]>0){
+				$sum= $product["price"]-(($product["price"]*$product["discount"])/100);
+				$listProduct[$key]["discount"]=round($sum);
+			}
+		}
+
+		return $listProduct;
+	}
+
 	public static function getDataProductForOrder($listProduct){
 		$ids= array();
 		foreach($listProduct as $order){
@@ -79,6 +126,34 @@ class Product{
 		return $product;
 	}
 
+	public static function getPopularProduct(){
+		$product=  R::getAll( 'SELECT id, tag, name, company, price, discount, size, views, id_third_cat FROM product WHERE status=1 ORDER BY views DESC LIMIT 50');
+
+		return $product;
+	}
+
+	public static function getNewProduct(){
+		$product=  R::getAll( 'SELECT id, tag, name, company, price, discount, size, views, id_third_cat FROM product WHERE status=1 ORDER BY id DESC LIMIT 50');
+
+		return $product;
+	}
+
+	public static function getPopularProductBySecondCat($secondCat){
+		$listId3cat= R::getCol("SELECT id FROM third_category WHERE id_second_cat=?", array($secondCat));
+
+		$product=  R::getAll( 'SELECT id, tag, name, company, price, discount, size, views, id_third_cat FROM product WHERE status=1 AND id_third_cat IN ('.R::genSlots($listId3cat).') ORDER BY views DESC LIMIT 50', $listId3cat);
+
+		return $product;
+	}
+
+	public static function getNewProductBySecondCat($secondCat){
+		$listId3cat= R::getCol("SELECT id FROM third_category WHERE id_second_cat=?", array($secondCat));
+
+		$product=  R::getAll( 'SELECT id, tag, name, company, price, discount, size, views, id_third_cat FROM product WHERE status=1 AND id_third_cat IN ('.R::genSlots($listId3cat).') ORDER BY id DESC LIMIT 50', $listId3cat);
+
+		return $product;
+	}
+
 	public static function getSizeByListCategory($thirdCat){
 		$listCat=array();
 		foreach ($thirdCat as $value) {
@@ -86,6 +161,28 @@ class Product{
 		}
 
 		$size=  R::getAll( 'SELECT size FROM product WHERE id_third_cat IN ('.R::genSlots( $listCat ).') GROUP BY size', $listCat);
+		$listSize= array();
+		foreach ($size as $val) {
+			$mas= explode("-", $val["size"]);
+			foreach ($mas as $onesize){
+				$sum_size=explode(".", $onesize);
+				if($sum_size[0]!=""){
+					if(!in_array($sum_size[1], $listSize)){
+						array_push($listSize, $sum_size[1]);
+					}
+				}
+			}
+		}
+		return $listSize;
+	}
+
+	public static function getSizeByListProduct($listPopularProduct){
+		$listID=array();
+		foreach ($listPopularProduct as $value) {
+			array_push($listID, $value["id_third_cat"]);
+		}
+
+		$size=  R::getAll( 'SELECT size FROM product WHERE id_third_cat IN ('.R::genSlots( $listID ).') GROUP BY size', $listID);
 		$listSize= array();
 		foreach ($size as $val) {
 			$mas= explode("-", $val["size"]);
@@ -240,6 +337,18 @@ class Product{
 
 	public static function findProducById($id){
 		$product=  R::getRow( 'SELECT id FROM product WHERE id=?', array($id));
+
+		if(!empty($product)){
+			$product=true;
+		}else{
+			$product=false;
+		}
+
+		return $product;
+	}
+
+	public static function findPromotionById($id){
+		$product=  R::getRow( 'SELECT id FROM promotion WHERE id=?', array($id));
 
 		if(!empty($product)){
 			$product=true;

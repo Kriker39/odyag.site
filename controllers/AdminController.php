@@ -49,6 +49,10 @@ class AdminController{
 		$link= User::getProfileLink();
 		if($link=="profile"){
 			if(User::checkAdmin()){
+				$listProduct= Admin::getDataProduct();
+				$listCategory=Admin::getListCategory();
+				$listProduct=Admin::encodeListSize($listProduct);
+				$listProduct=Admin::encodeListLength($listProduct);
 
 				require_once(ROOT.'/views/admin-product/index.php');
 			}else{
@@ -67,44 +71,10 @@ class AdminController{
 		$link= User::getProfileLink();
 		if($link=="profile"){
 			if(User::checkAdmin()){
+				$listPromotion= Admin::getDataPromotion();
+				$listPromotion= Admin::encodeProductsPromo($listPromotion);
 
-				require_once(ROOT.'/views/admin-profile/index.php');
-			}else{
-				header('Location: /profile/');
-				exit();
-			}
-		}else{
-			header('Location: /sign/');
-			exit();
-		}
-		
-		return true;
-	}
-
-	public static function actionUser(){
-		$link= User::getProfileLink();
-		if($link=="profile"){
-			if(User::checkAdmin()){
-
-				require_once(ROOT.'/views/admin-user/index.php');
-			}else{
-				header('Location: /profile/');
-				exit();
-			}
-		}else{
-			header('Location: /sign/');
-			exit();
-		}
-		
-		return true;
-	}
-
-	public static function actionCategory(){
-		$link= User::getProfileLink();
-		if($link=="profile"){
-			if(User::checkAdmin()){
-
-				require_once(ROOT.'/views/admin-category/index.php');
+				require_once(ROOT.'/views/admin-promotion/index.php');
 			}else{
 				header('Location: /profile/');
 				exit();
@@ -182,6 +152,112 @@ class AdminController{
 			}
 		}else{
 			$err="Замовлення з таким кодом не знайдено";
+		}
+
+		if($err!=false){
+			echo json_encode($err);
+		}
+		
+		return true;
+	}
+
+	public static function jsactionUpdateProduct($dataForUpdate){
+		$err=true;
+		$listData=explode("|", $dataForUpdate);
+		
+		if(Admin::checkProductById($listData[0])){
+			$rslt= Admin::updateProductData($listData);
+			
+			if($rslt==1 || $rslt==0){
+				$err=false;
+				echo true;
+			}else{
+				$err="Не вдалось редагувати товар";
+			}
+		}else{
+			$err="Товар з таким кодом не знайдено";
+		}
+
+		if($err!=false){
+			echo json_encode($err);
+		}
+		
+		return true;
+	}
+
+	public static function jsactionDeleteImg($code, $num){
+		$err=true;
+		$filename = realpath(dirname(__FILE__) . '/..')."/data/product/img/".$code."/".$num.".jpg";
+		if (file_exists($filename)) {
+			if(unlink($filename)){
+				if(Admin::renameImgInDir(realpath(dirname(__FILE__) . '/..')."/data/product/img/".$code."/", $num)){
+					$err=false;
+					echo true;
+				}else{
+					$err="Сталась помилка у дерикторії. Треба перезавантажити сторінку.";
+				}
+			}else{
+				$err="Не вдалося видалити зображення";
+			}
+		} else {
+			$err="Файл не знайдено";
+		}
+
+		if($err!=false){
+			echo json_encode($err);
+		}
+		
+		return true;
+	}
+
+	public static function jsactionAddProduct(){
+		$err=true;
+		
+		if(Admin::addNewProject()){
+			$err=false;
+			echo true;
+		} else {
+			$err="Не вдалось додати товар";
+		}
+
+		if($err!=false){
+			echo json_encode($err);
+		}
+		
+		return true;
+	}
+
+	public static function jsactionGetProductForPromo($id){
+		$err=true;
+		
+		if(Product::findProducById($id)){
+			$err=Admin::getShortInfoProductForPromo($id);
+		} else {
+			$err="Товар з таким кодом не знайдено";
+		}
+
+		if($err!=false){
+			echo json_encode($err);
+		}
+		
+		return true;
+	}
+
+	public static function jsactionUpdatePromotion($dataForUpdate){
+		$err=true;
+		$listData=explode("|", $dataForUpdate);
+		
+		if(Product::findPromotionById($listData[0])){
+			$rslt= Admin::updatePromotionData($listData);
+			
+			if($rslt==1 || $rslt==0){
+				$err=false;
+				echo true;
+			}else{
+				$err="Не вдалось редагувати акцію";
+			}
+		}else{
+			$err="Акцію з таким номером не знайдено";
 		}
 
 		if($err!=false){

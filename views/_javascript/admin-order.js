@@ -6,6 +6,7 @@ var activeElem;
 
 jQuery(document).ready(function(){
 	startEvents();
+
 });
 
 function startEvents(){
@@ -19,6 +20,20 @@ function startEvents(){
 			jQuery(this).parent().css("background-color", "");
 		}
 	});
+
+	jQuery(".select_type_delivery").on("change", function(){
+		jQuery(this).parent().parent().children(".type_delivery.active").removeClass("active");
+		
+		var value= jQuery(this).val();
+		if(value=="curier"){
+			jQuery(jQuery(this).parent().parent().children(".type_delivery")[0]).addClass("active");
+		}else if(value=="punktvidachi"){
+			jQuery(jQuery(this).parent().parent().children(".type_delivery")[1]).addClass("active");
+		}else if(value=="post"){
+			jQuery(jQuery(this).parent().parent().children(".type_delivery")[2]).addClass("active");
+		}
+	});
+
 	eventBtnDeleteProduct();
 	eventBtnAddProduct();
 	eventBtnUpdateProduct();

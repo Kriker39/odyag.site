@@ -241,6 +241,14 @@ body{
 	max-height: inherit;
 }
 
+/* -------------------------- Promotion page -------------------------- */
+.promotion_title{
+	width: 100%;
+}
+	.promotion_title>img{
+		width: 100%;
+	}
+
 /* -------------------------- Popular products -------------------------- */
 .productPopular{
 	position: relative;
@@ -289,6 +297,12 @@ body{
 }
 .productPopular .splide__track{
 	height: 300px;
+}
+.productPopular b, .productNewForWoman b, .productNewForMan b{
+	color: red;
+}
+.productPopular s, .productNewForWoman s, .productNewForMan s{
+	font-size: 13px;
 }
 
 /* -------------------------- SLIDER NEW for WOMAN --------------------------*/
@@ -493,7 +507,7 @@ width: 100%;
 		border: 2px black solid;
 		padding: 20px;
 	}
-/* -------------------------- WOMAN -------------------------- */
+/* -------------------------- PRODUCTS -------------------------- */
 .products{
 	width: 100%;
 	display: flex;
@@ -664,6 +678,12 @@ width: 100%;
 .scrollup:hover {
 	background-color: green;
 }
+.category .active{
+	color: green;
+}
+	.category .active:hover, .category .active:active{
+		color: green;
+	}
 
 /* -------------------------- ВХІД / РЕЄСТРАЦІЯ -------------------------- */
 .sign{
@@ -2049,6 +2069,108 @@ width: 100%;
 }
 .adminPage_btnUpdate{
 	z-index: 5;
+}
+.adminPage img{
+	pointer-events: auto;
+}
+.adminPage_templateColor{
+	text-align: center;
+}
+	.adminPage_templateColor>img{
+		height: 80px;
+	}
+.adminPage_table2_addImg img, .adminPage_table2_constructorImg img{
+	max-height: 100px;
+}
+.adminPage_listImg img{
+	max-height: 200px;
+}
+.adminPage_showImg{
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 10;
+	height: 100%;
+	width: 100%;
+	justify-content: center;
+	display: none;
+	cursor: pointer;
+}
+	.adminPage_showImg>div{
+		position: absolute;
+		top: 10%;
+		bottom: 10%;
+		background-color: green;
+		cursor: auto;
+	}
+	.adminPage_showImg>div>img{
+		max-width: 100%;
+		max-height: 100%;	
+	}
+.adminPage_listImg img{
+	cursor: pointer;
+}
+.adminPage_constructorImg{
+	cursor: pointer;
+}
+.adminPage_products_btn{
+	background-color: #A6B5FF;
+	cursor: pointer;
+	text-align: center;
+	position: relative;
+}
+	.adminPage_products_btn>img{
+		display: none;
+		height: 22px;
+	}
+	.adminPage_products_btn:hover{
+		background-color: #CDD5FF;
+	}
+	.adminPage_products_btn:active{
+		background-color: #72E472;
+	}
+.adminPage_loadColor>img{
+	cursor: pointer;
+}
+.adminPage_listProduct td{
+	max-width: 100px;
+}
+.adminPage_listProduct input, .adminPage_listProduct textarea, .adminPage_listProduct select{
+	max-width: 100%;
+}
+.adminPage_addProduct{
+	width: 90%;
+	margin: 20px auto 0 auto;
+}
+	.adminPage_addProduct>div{
+		border: 1px black solid;
+		display: inline-block;
+		padding: 5px 20px;
+		background-color: black;
+		cursor: pointer;
+	}
+		.adminPage_addProduct>div>span{
+			color: white;
+		}
+		.adminPage_addProduct>div>img{
+			height: 20px;
+			display: none;
+		}
+		.adminPage_addProduct>div:hover{
+			background-color: gray;
+		}
+		.adminPage_addProduct>div:active{
+			background-color: green;
+			border: 1px green solid;
+		}
+.adminPage_imgPromotion{
+	width: 100%;
+}
+.adminPage_itemListImg{
+	height: 100px;
 }
 
 /*  MEDIA ЗМІНА СТИЛЮ ПІД ІНШІ РОЗМІРИ ВІКНА  */

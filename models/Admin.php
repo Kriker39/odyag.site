@@ -2,10 +2,51 @@
 
 class Admin{
 
+	public static function addNewProject(){ 
+		$return=false;
+		
+		$product= R::dispense("product");
+		$product->name="НОВИЙ ТОВАР";
+
+		$rslt=R::store($product);
+		if($rslt>=1){
+			$return=true;
+		}
+
+		return $return;
+	}
+
+	public static function renameImgInDir($path, $num){ 
+		$return=true;
+		$listFile= scandir($path);
+		foreach($listFile as $filename){
+			if(strlen($filename)>=5){
+				$actualnum=preg_replace("/.jpg$/", "", $filename);
+				if($actualnum>=$num){
+					$actualnum-=1;
+					rename($path.$filename, $path.$actualnum.".jpg");
+				}
+			}
+		}
+		return $return;
+	}
+
 	public static function updateOrderData($listData){ 
 		$updateOrder= R::exec("UPDATE `order` SET recipient=?, `number`=?, method_delivery=?, address_delivery=?, sum=?, status_order=?, status=? WHERE id=?", array($listData[1], $listData[2], $listData[3], $listData[4], $listData[5], $listData[6], $listData[7], $listData[0]));
 
 		return $updateOrder;
+	}
+
+	public static function updateProductData($listData){ 
+		$updateOrder= R::exec("UPDATE product SET tag=?, name=?, company=?, price=?, discount=?, description=?, material=?, id_third_cat=?, constructor_status=?, status=?, size=?, length=? WHERE id=?", array($listData[1], $listData[2], $listData[3], $listData[4], $listData[5], $listData[6], $listData[7], $listData[8], $listData[9], $listData[10], $listData[11], $listData[12], $listData[0]));
+
+		return $updateOrder;
+	}
+
+	public static function updatePromotionData($listData){
+		$updatePromo= R::exec("UPDATE `promotion` SET products=?, `status`=? WHERE id=?", array($listData[1], intval($listData[2]), $listData[0]));
+
+		return $updatePromo;
 	}
 
 	public static function updateUserData($id, $status){ 
@@ -137,10 +178,50 @@ class Admin{
 		return $listReturn;
 	}
 
+	public static function getShortInfoProductForPromo($id){ 
+		$return=R::getRow("SELECT id, tag, name, company FROM product WHERE id=?", array($id));
+
+		return $return;
+	}
+
 	public static function getListOrder(){ 
 		$listOrder=R::getAll("SELECT * FROM `order` ORDER BY `date` DESC");
 
 		return $listOrder;
+	}
+
+	public static function getDataProduct(){ 
+		$listProduct= R::getAll("SELECT * FROM product ORDER BY id DESC");
+
+		return $listProduct;
+	}
+
+	public static function getDataPromotion(){ 
+		$listPromo= R::getAll("SELECT * FROM promotion ORDER BY id DESC");
+
+		return $listPromo;
+	}
+
+	public static function getListCategory(){ 
+		$listCategory=array();
+		$listThirdCategory= R::getAll("SELECT * FROM third_category ORDER BY id_first_cat, id_second_cat");
+		$listSecondCategory= R::getAll("SELECT * FROM second_category");
+		$listFirstCategory= R::getAll("SELECT * FROM first_category");
+
+		foreach($listThirdCategory as $category3){
+			foreach($listFirstCategory as $category1){
+				if($category3["id_first_cat"]==$category1["id"]){
+					foreach($listSecondCategory as $category2){
+						if($category3["id_second_cat"]==$category2["id"]){
+							array_push($listCategory, array($category3["id"], $category1["name"]."-".$category2["name"]."-".$category3["name"]));
+							break 2;
+						}
+					}
+				}
+			}
+		}
+
+		return $listCategory;
 	}
 
 	public static function getListProductOrder($listProduct){ 
@@ -249,6 +330,80 @@ class Admin{
 		}
 
 		return $return;
+	}
+
+	public static function checkProductById($id){
+		$return=  R::getRow('SELECT id FROM `product` WHERE id=?', array($id));
+
+		if(!empty($return)){
+			$return=true;
+		}else{
+			$return=false;
+		}
+
+		return $return;
+	}
+
+	public static function encodeListSize($listProduct){
+
+		foreach($listProduct as $key=>$product){
+			$listSize= explode("-", $product["size"]);
+			$listProduct[$key]["size"]=array();
+			foreach($listSize as $size){
+				$masSize=explode(".", $size);
+				if(isset($masSize[1])){
+					array_push($listProduct[$key]["size"], array($masSize[0], $masSize[1]));
+				}
+			}
+		}
+
+		return $listProduct;
+	}
+
+	public static function encodeListLength($listProduct){
+
+		foreach($listProduct as $key=>$product){
+			$listLength= explode("-", $product["length"]);
+			$listProduct[$key]["length"]=array();
+			foreach($listLength as $length){
+				$masLength=explode(".", $length);
+				if(isset($masLength[1])){
+					array_push($listProduct[$key]["length"], array($masLength[0], $masLength[1]));
+				}
+			}
+		}
+
+		return $listProduct;
+	}
+
+	public static function encodeProductsPromo($listPromo){
+		$listId=array();
+		foreach($listPromo as $key=>$promo){
+			$listProd= explode(".", $promo["products"]);
+			foreach($listProd as $id){
+				if(!in_array($id, $listId)){
+					array_push($listId, $id);
+				}
+			}
+		}
+		$listTag= R::getAll("SELECT id, tag, name, company FROM product WHERE id IN (".R::genSlots($listId).")", $listId);
+
+		foreach($listPromo as $key=>$promo){
+			$listProd= explode(".", $promo["products"]);
+			$newList=array();
+			foreach($listProd as $id){
+				foreach($listTag as $tag){
+					if($tag["id"]==$id){
+						$code="tp".$tag["tag"]."p".$tag["id"];
+						$name=$tag["name"]." ".$tag["company"];
+						array_push($newList, array($code, $name));
+					}
+				}
+			}
+			$listPromo[$key]["products"]= $newList;
+		}
+
+		return $listPromo;
 	}
 
 }

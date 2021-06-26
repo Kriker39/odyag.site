@@ -13,9 +13,9 @@
 	<div class="splide slider1">
 		<div class="splide__track">
 			<ul class="splide__list">
-				<li class="splide__slide"><a href="/promotion/1"><img src="/views/_img/promotion/promotion1.jpg"></a></li>
-				<li class="splide__slide"><a href="/promotion/1"><img src="/views/_img/promotion/promotion2.jpg"></a></li>
-				<li class="splide__slide"><a href="/promotion/1"><img src="/views/_img/promotion/promotion3.jpg"></a></li>
+				<?php foreach($listPromotion as $id){
+					echo "<li class='splide__slide'><a href='/promotion/".$id."'><img src='/data/promotion/".$id.".jpg'></a></li>";
+				} ?>
 			</ul>
 		</div>
 		
@@ -31,204 +31,23 @@
 	<div class="splide slider2">
 		<div class="splide__track">
 			<ul class="splide__list">
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>800 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>434 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/3">
-							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>421 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/data/product/img/tp1p1/1.jpg"></div>
-							<span>466 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/data/product/img/tp2p7/1.jpg"></div>
-							<span>712 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/data/product/img/tp2p6/1.jpg"></div>
-							<span>854 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/data/product/img/tp1p2/1.jpg"></div>
-							<span>491 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/3">
-							<div><img src="/data/product/img/tp1p4/1.jpg"></div>
-							<span>672 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/data/product/img/tp1p3/1.jpg"></div>
-							<span>228 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/data/product/img/tp2p5/1.jpg"></div>
-							<span>831 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/data/product/img/tp2p8/1.jpg"></div>
-							<span>813 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>800 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>434 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/3">
-							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>421 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/data/product/img/tp1p1/1.jpg"></div>
-							<span>466 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/data/product/img/tp2p7/1.jpg"></div>
-							<span>712 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/data/product/img/tp2p6/1.jpg"></div>
-							<span>854 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/data/product/img/tp1p2/1.jpg"></div>
-							<span>491 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/3">
-							<div><img src="/data/product/img/tp1p4/1.jpg"></div>
-							<span>672 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/data/product/img/tp1p3/1.jpg"></div>
-							<span>228 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/data/product/img/tp2p5/1.jpg"></div>
-							<span>831 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/data/product/img/tp2p8/1.jpg"></div>
-							<span>813 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
+				<?php foreach($listProductPopular as $product): ?>
+					<li class="splide__slide">
+						<div class="splide__slide__container">
+							<a href="/product/<?php echo "tp".$product["tag"]."p".$product["id"]; ?>">
+								<div><img src="/data/product/img/<?php echo "tp".$product["tag"]."p".$product["id"]; ?>/1.jpg"></div>
+								<span><?php 
+									if($product["discount"]>0){
+										echo "<b>".$product["discount"]." UAH</b> <s>".$product["price"]." UAH</s>";
+									}else{
+										echo $product["price"];
+									}
+								?></span>
+								<span><?php echo $product["company"]; ?></span>
+							</a>
+						</div>
+					</li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 		
@@ -244,150 +63,23 @@
 	<div class="splide slider3">
 		<div class="splide__track">
 			<ul class="splide__list">
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/3">
-							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/3">
-							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/3">
-							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/3">
-							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
+				<?php foreach($listProductLastForWoman as $product): ?>
+					<li class="splide__slide">
+						<div class="splide__slide__container">
+							<a href="/product/<?php echo "tp".$product["tag"]."p".$product["id"]; ?>">
+								<div><img src="/data/product/img/<?php echo "tp".$product["tag"]."p".$product["id"]; ?>/1.jpg"></div>
+								<span><?php 
+									if($product["discount"]>0){
+										echo "<b>".$product["discount"]." UAH</b> <s>".$product["price"]." UAH</s>";
+									}else{
+										echo $product["price"];
+									}
+								?></span>
+								<span><?php echo $product["company"]; ?></span>
+							</a>
+						</div>
+					</li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 		
@@ -403,150 +95,23 @@
 	<div class="splide slider4">
 		<div class="splide__track">
 			<ul class="splide__list">
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/3">
-							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/3">
-							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/3">
-							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/2">
-							<div><img src="/views/_data/man/clothes/1/2.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/3">
-							<div><img src="/views/_data/man/clothes/1/3.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
-				<li class="splide__slide">
-					<div class="splide__slide__container">
-						<a href="/product/1">
-							<div><img src="/views/_data/man/clothes/1/1.jpg"></div>
-							<span>2436 UAH</span>
-							<span>Cropp</span>
-						</a>
-					</div>
-				</li>
+				<?php foreach($listProductLastForMan as $product): ?>
+					<li class="splide__slide">
+						<div class="splide__slide__container">
+							<a href="/product/<?php echo "tp".$product["tag"]."p".$product["id"]; ?>">
+								<div><img src="/data/product/img/<?php echo "tp".$product["tag"]."p".$product["id"]; ?>/1.jpg"></div>
+								<span><?php 
+									if($product["discount"]>0){
+										echo "<b>".$product["discount"]." UAH</b> <s>".$product["price"]." UAH</s>";
+									}else{
+										echo $product["price"];
+									}
+								?></span>
+								<span><?php echo $product["company"]; ?></span>
+							</a>
+						</div>
+					</li>
+				<?php endforeach; ?>
 			</ul>
 		</div>
 		

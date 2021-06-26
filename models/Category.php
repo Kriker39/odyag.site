@@ -27,5 +27,17 @@ class Category{
 
 		return $category;
 	}
+
+	public static function getThirdCategoryForSecond($IDfirstCat, $IDsecondCat){
+		$category= R::getAll( 'SELECT id,name FROM third_category WHERE status=1 AND id_first_cat=? AND id_second_cat=?', array($IDfirstCat, $IDsecondCat));
+
+		return $category;
+	}
+
+	public static function getThirdCategoryForThird($IDfirstCat, $IDsecondCat, $IDthirdCat){
+		$category= R::getAll( 'SELECT id,name FROM third_category WHERE status=1 AND id_first_cat=? AND id_second_cat=? AND id=?', array($IDfirstCat, $IDsecondCat, $IDthirdCat));
+
+		return $category;
+	}
 	
 }

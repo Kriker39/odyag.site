@@ -4,7 +4,7 @@
 	<?php include(config::getLink("head_tags.php")); ?>
 	<script type="text/javascript" src="<?php echo config::getLink('jquery.cookie.js') ?>"></script>
 	<script type="text/javascript" src="<?php echo config::getLink('router.js') ?>"></script>
-	<script type="text/javascript" src="<?php echo config::getLink('admin.js') ?>"></script>
+	<script type="text/javascript" src="<?php echo config::getLink('admin-order.js') ?>"></script>
 </head>
 <body>
 <?php include(config::getLink("header.php")); ?>
